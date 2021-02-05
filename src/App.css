@@ -42,10 +42,9 @@
   background-color: #1B2430;
   color: white;
   padding-top: 10px;
-  padding-bottom: 0px;
-  position:fixed;
   bottom:0;
   width:100%;
+  overflow: visible;
 }
 .footer-left{
   display: flex;
@@ -68,6 +67,9 @@
 .margin-right-footer{
   margin-right: 50px;
 }
+.footer-end{
+  height: 100px;
+}
 .footer-end-bottom{
   float: right;
   margin-right: 50px;
@@ -75,4 +77,55 @@
 
 .header-menu-button{
   margin-left: 30px;
+}
+.nav{
+  display: flex;
+  justify-content: space-between;
+}
+.nav-left{
+  display: flex;
+}
+
+.nav-right{
+  display: flex;
+}
+.ad-sec-cont{
+  background: transparent linear-gradient(180deg, #DB750A 0%, #DB4300 100%) 0% 0% no-repeat padding-box;
+  opacity: 1;
+  display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.ad-msg{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.opt-nxt{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 0px 0px 15px #00000014;
+opacity: 1;
+}
+
+.option-sec-cont{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.options{
+  background-color: black;
+  border-radius: 50%;
+  align-items: center;
+}
+
+.opt-food{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.opt-food-span{
+  font-weight: 500;
 }

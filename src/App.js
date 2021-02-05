@@ -1,15 +1,23 @@
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import { Container } from '@material-ui/core';
+
 import HeaderNext from './Default/HeaderNext';
 import Footer from './Default/Footer';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import Main from './Views/Main';
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <HeaderNext />
+      <Container>
+        <HeaderNext />
+        <Main />
+        <Footer />
+      </Container>
+
       <AmplifySignOut />
-      <Footer />
+
     </div>
   );
 }

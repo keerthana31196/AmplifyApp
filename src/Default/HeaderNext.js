@@ -69,40 +69,44 @@ export default function HeaderNext() {
       
     }
     return (
-              <div style={{display: "flex"}}>
-                <div style={{margin:"20px"}}>
-                    <MenuIcon fontSize="large" onClick={toggleDrawer("left", true)}/>
-                </div>
-                <div style={{margin:"20px"}}>
-                    <img src={logo} alt="caterxpress"></img>
-                </div>
-                <div style={{marginTop:"25px"}}>
-                    <Chip label="Delivery" style={{marginRight:"10px"}} disabled />
-                    <Chip icon={<LocationOnIcon fontSize="small" />} label="Apple Park Way" disabled/>
-                </div>
-                <div style={{display:"flex",marginLeft:"calc(30%)",marginRight:"10px"}}>
-                    <Paper style={{height:"fit-content",margin:"15px"}}>
-                        <IconButton type="submit" 
-                        // className={classes.iconButton} 
-                        aria-label="search">
-                            <SearchIcon />
-                        </IconButton>
-                        <InputBase
-                            // className={classes.input}
-                            placeholder="Search Google Maps"
-                            inputProps={{ 'aria-label': 'search google maps' }}
-                        />
-                        
-                    </Paper>
-                    <div>
-                        <Chip
-                            icon={<AddShoppingCartIcon />}
-                            label="Cart"
-                            onClick={toggleDrawer("right", true)}
-                            style={{marginTop:"20px",width:"100px",backgroundImage: "linear-gradient(to right, #DB750A , #DB4300)"}}
-                        />
+              <div className="nav">
+
+                  <div className="nav-left">
+                    <div style={{padding:"20px"}}>
+                        <MenuIcon fontSize="large" onClick={toggleDrawer("left", true)}/>
                     </div>
-                </div>
+                    <div style={{paddingBlockStart:"20px"}}>
+                        <img src={logo} alt="caterxpress"></img>
+                    </div>
+                    <div style={{paddingBlockStart:"25px"}}>
+                        <Chip label="Delivery" style={{marginRight:"10px"}} disabled />
+                        <Chip icon={<LocationOnIcon fontSize="small" />} label="Apple Park Way" disabled/>
+                    </div>
+                  </div>
+
+                    <div className="nav-right">
+                        <Paper style={{height:"fit-content",margin:"15px"}}>
+                            <IconButton type="submit" 
+                            // className={classes.iconButton} 
+                            aria-label="search">
+                                <SearchIcon />
+                            </IconButton>
+                            <InputBase
+                                // className={classes.input}
+                                placeholder="Search"
+                                inputProps={{ 'aria-label': 'search' }}
+                            />
+                            
+                        </Paper>
+                        <div>
+                            <Chip
+                                icon={<AddShoppingCartIcon />}
+                                label="Cart"
+                                onClick={toggleDrawer("right", true)}
+                                style={{color:"white",marginTop:"20px",width:"100px",backgroundImage: "linear-gradient(to right, #DB750A , #DB4300)"}}
+                            />
+                        </div>
+                    </div>
                 <Drawer anchor={"left"} open={state["left"]} onClose={toggleDrawer("left", false)}>
                     {list("left")}
                 </Drawer>
