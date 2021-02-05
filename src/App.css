@@ -36,3 +36,43 @@
     transform: rotate(360deg);
   }
 }
+
+
+#footer{
+  background-color: #1B2430;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  position:fixed;
+  bottom:0;
+  width:100%;
+}
+.footer-left{
+  display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.footer-ul{
+  display: block;
+    list-style-type: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+.footer-end-top{
+  display: flex;
+  justify-content: flex-end;
+}
+.margin-right-footer{
+  margin-right: 50px;
+}
+.footer-end-bottom{
+  float: right;
+  margin-right: 50px;
+}
+
+.header-menu-button{
+  margin-left: 30px;
+}
