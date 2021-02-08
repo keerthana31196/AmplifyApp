@@ -10,6 +10,9 @@ import pny3 from '../Assets/img/pny3.png';
 import he1 from '../Assets/img/he1.png';
 import he2 from '../Assets/img/he2.png';
 import he3 from '../Assets/img/he3.png';
+import exBur from '../Assets/img/exBur.png';
+import exMex from '../Assets/img/exMex.png';
+import exCafe from '../Assets/img/exCafe.png';
 
 export const Menu =
 { data: [
@@ -106,4 +109,36 @@ export const Menu =
         ]
     }
 ]
+}
+
+export const FilterMenu = {
+    data: [
+        {
+            category: "Example Burger",
+            available: "Fast Food, Burgers",
+            time: 30,
+            ratings: 4.5,
+            reviews: 4572,
+            delivery: 1.99,
+            img: [nf1, exBur]
+        },
+        {
+            category: "Example Mexican",
+            available: "Fast Food, Chicken",
+            time: 40,
+            ratings: 4.8,
+            reviews: 9772,
+            delivery: 2.50,
+            img: [nf2, exMex]
+        },
+        {
+            category: "Example Cafe",
+            available: "Fast Food, Coffee",
+            time: 15,
+            ratings: 4.6,
+            reviews: 1256,
+            delivery: 3.99,
+            img: [nm2, exCafe]
+        }
+    ]
 }

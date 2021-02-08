@@ -5,7 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import ArrowDropDownCircleSharpIcon from '@material-ui/icons/ArrowDropDownCircleSharp';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 // import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Card, CardMedia, CardContent, Typography } from '@material-ui/core';
 
 import ad1 from '../Assets/img/ad1.png';
 import ad2 from '../Assets/img/ad2.png';
@@ -21,7 +22,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { ReactComponent as Icon } from '../Assets/img/options.svg';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import { Menu } from '../Data/Data';
+import { Menu, FilterMenu } from '../Data/Data';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -65,6 +66,25 @@ const useStyles = makeStyles((theme) => ({
           color: "#6C6C6C",
           padding: "5px",
           marginLeft: "10px"
+      },
+      media:{
+          width: 400,
+          height: 270,
+          padding: 20
+      },
+      flex:{
+          display: "flex"
+      },
+      filterContent:{
+        display: "flex",
+        justifyContent: "space-between",
+        color: "#898989",
+        font: "normal normal normal 25px/30px Roboto",
+        padding: 10
+      },
+      filteredMenuCont:{
+          paddingBlockStart: 10,
+          paddingBlockEnd: 10
       }
   }));
 
@@ -164,6 +184,7 @@ const Filter = (props) => {
                 
     );
 }
+
 const MainMenu = () => {
     const [menu, setMenu] = useState(Menu.data);
     const classes = useStyles();
@@ -198,8 +219,46 @@ const MainMenu = () => {
 }
 
 const FilteredMenu = ( props ) => {
+
+    const filMenu = FilterMenu.data
+    const classes = useStyles();
+
     return(
-        <div>filtered menu</div>
+        <div>
+            {filMenu.map((fil,i) => (
+                <div className={classes.filteredMenuCont}>
+                    <Card>
+                        <div className={classes.flex}>
+                            {fil.img.map((im,idx) => (
+                                <Link to='/restaurant'>
+                                    <img
+                                        className={classes.media}
+                                        src={im}
+                                        alt={fil.category}
+                                    />
+                                </Link>
+                            ))}
+                        </div>
+                    <CardContent>
+                        <Typography style={{textAlign:"initial"}} gutterBottom variant="h5" component="h2">
+                            {fil.category}
+                        </Typography>
+                        <div className={classes.filterContent}>
+                            <div>$. {fil.available}</div>
+                            <div>{fil.time} mins</div>
+                        </div>
+                        <div className={classes.filterContent}>
+                            <div className={classes.flex}>
+                                <div style={{marginRight: "20px"}}>{fil.ratings}<StarOutlineIcon /></div>
+                                <div>{fil.reviews}+ Reviews</div>
+                            </div>
+                            <div>${fil.delivery} Delivery</div>
+                        </div>
+                    </CardContent>
+                    </Card>
+                </div>
+            ))}
+        </div>
     );
 }
 

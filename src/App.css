@@ -168,3 +168,7 @@ opacity: 1;
   width: 400px;
   height: 198px;
 }
+
+amplify-button.hydrated .button{
+  width: fit-content;
+}
