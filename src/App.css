@@ -135,3 +135,36 @@ opacity: 1;
   justify-content: space-evenly;
   padding: 20px;
 }
+
+.cat-title-cont{
+  display: flex;
+    justify-content: space-between;
+}
+
+.cat-title{
+  font: normal normal bold 60px/79px Roboto;
+}
+
+.cat-options{
+  display: flex;
+}
+
+.opt-card{
+  padding: 10px;
+  text-align: initial;
+  width: 410px;
+}
+
+.opt-restaurant{
+  font-size: larger;
+  font-weight: 600;
+}
+
+.opt-rest-det{
+  color: #B1B1B1;
+}
+
+.opt-img{
+  width: 400px;
+  height: 198px;
+}

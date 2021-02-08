@@ -19,6 +19,9 @@ import option7 from '../Assets/img/option7.png';
 import option8 from '../Assets/img/option8.png';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { ReactComponent as Icon } from '../Assets/img/options.svg';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import { Menu } from '../Data/Data';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -54,6 +57,14 @@ const useStyles = makeStyles((theme) => ({
       },
       starColor: {
           color: "#E87803"
+      },
+      optChange: {
+          background: "#DBDBDB",
+          borderRadius: "50%",
+          fontSize: "xxx-large",
+          color: "#6C6C6C",
+          padding: "5px",
+          marginLeft: "10px"
       }
   }));
 
@@ -154,8 +165,35 @@ const Filter = (props) => {
     );
 }
 const MainMenu = () => {
+    const [menu, setMenu] = useState(Menu.data);
+    const classes = useStyles();
+
     return(
-        <div>main menu</div>
+        <div>
+            {menu.map((cat,idx) => (
+
+                <div className="cat-cont">
+                    <div className="cat-title-cont">  
+                        <div className="cat-title">{cat.category}</div>
+                        <div className="cat-buttons">
+                            <Button className={classes.chip} variant="outlined">View All</Button>
+                            <ArrowBackIcon className={classes.optChange}/>
+                            <ArrowForwardIcon className={classes.optChange} />
+                        </div>
+                    </div>
+                    <div className="cat-options">
+                        {cat.options.map((opt,i) => (
+                            <div className="opt-card">
+                                <img className="opt-img" src={opt.img} alt={opt.restaurant}/>
+                                <div className="opt-restaurant">{opt.restaurant}</div>
+                                <div className="opt-rest-det">$ {opt.rate} delivery - {opt.time} mins</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+            ))}
+        </div>
     );
 }
 
