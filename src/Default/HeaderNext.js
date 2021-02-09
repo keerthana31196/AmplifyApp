@@ -20,7 +20,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Drawer from '@material-ui/core/Drawer';
+import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
+import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
+import Icon from '@material-ui/core/Icon';
 
+import { getCart } from "../store/slices/cart";
+import { getItems } from "../store/slices/items";
 import logo from '../Assets/img/logo.svg';
 
 const useStyles = makeStyles({
@@ -34,6 +40,9 @@ const useStyles = makeStyles({
 
 export default function HeaderNext() {
     const classes = useStyles();
+    const no = useSelector(getCart) || 0;
+    const items = useSelector(getItems) || [];
+
     const [state, setState] = React.useState({
       left: false,
       right: false
@@ -57,14 +66,34 @@ export default function HeaderNext() {
             </List>
         }
         else{
-            return <List>
-                        {['Order', 'Starred', 'Rating', 'Sign out'].map((text, index) => (
-                        <ListItem button key={text}>
-                            {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-                            <ListItemText primary={text} />
-                        </ListItem>
-                        ))}
-                    </List>
+            return (
+                <div className="right-drawer">
+                    <div className="right-drawer-title">
+                        <div>
+                            <h2>Your Order</h2>
+                            <p>From <u>Example Burger</u></p>
+                        </div>
+                        <CancelRoundedIcon onClick={toggleDrawer("right", false)}/>
+                    </div>
+                    <Link to="/payment" onClick={toggleDrawer("right", false)}>
+                        <div className="checkout">
+                            <div>Checkout</div>
+                            <div>$9.75</div>
+                        </div>
+                    </Link>
+                    <div className="drawer-item">
+                        <div>
+                            <div>1 X McRib Meal</div>
+                            <div><u>Remove</u></div>
+                        </div>
+                        <div className="change">
+                            <Icon>remove_circle</Icon>
+                            <div>1</div>
+                            <Icon>add_circle</Icon>
+                        </div>
+                    </div>
+                </div>
+            );
         }
       
     }
@@ -76,7 +105,9 @@ export default function HeaderNext() {
                         <MenuIcon fontSize="large" onClick={toggleDrawer("left", true)}/>
                     </div>
                     <div style={{paddingBlockStart:"20px"}}>
-                        <img src={logo} alt="caterxpress"></img>
+                        <Link to="/">
+                            <img src={logo} alt="caterxpress"></img>
+                        </Link>
                     </div>
                     <div style={{paddingBlockStart:"25px"}}>
                         <Chip label="Delivery" style={{marginRight:"10px"}} disabled />
@@ -101,7 +132,7 @@ export default function HeaderNext() {
                         <div>
                             <Chip
                                 icon={<AddShoppingCartIcon />}
-                                label="Cart"
+                                label={"("+no+") cart"}
                                 onClick={toggleDrawer("right", true)}
                                 style={{color:"white",marginTop:"20px",width:"100px",backgroundImage: "linear-gradient(to right, #DB750A , #DB4300)"}}
                             />

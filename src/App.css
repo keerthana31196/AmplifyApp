@@ -169,6 +169,57 @@ opacity: 1;
   height: 198px;
 }
 
-amplify-button.hydrated .button{
-  width: fit-content;
+.right-drawer{
+  width: 400px;
+}
+
+.right-drawer-title{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.checkout{
+  background: transparent linear-gradient(
+180deg
+, #DB750A 0%, #DB4300 100%) 0% 0% no-repeat padding-box;
+    border-radius: 48px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: wheat;
+}
+
+.drawer-item{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px 10px 10px;
+}
+.change{
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+}
+.payment{
+  display:flex;
+  justify-content: center;
+}
+
+.payment-input{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #C3CFE2;
+  border-radius: 7px;
+  padding: 10px;
+  margin: 15px 5px;
+}
+
+.pay-button{
+  background: transparent linear-gradient(180deg, #DB750A 0%, #DB4300 100%) 0% 0% no-repeat padding-box;
+  border-radius: 40px;
+  text-align: center;
+  padding: 5px 15px;
+  margin: 5px 35px;
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
 }
